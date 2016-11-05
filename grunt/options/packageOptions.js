@@ -7,7 +7,7 @@ var _ = require('lodash'),
         }
     },
     options = {
-        packageJson: '<% grunt.file.readJSON(\'package.json\') %>',
+        packageJson: require('./../../package.json'),
         bundleJS: [
             'front-layer/**/*.js',
             '!front-layer/test/*'
