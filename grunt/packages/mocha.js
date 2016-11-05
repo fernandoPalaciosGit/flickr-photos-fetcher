@@ -1,50 +1,36 @@
 'use strict';
-var _ = require('lodash'),
-    phantomResources = {
-        'flickr-photos-fetcher': 'test/flickr-photos-fetcher.html'
-    };
 
 module.exports = {
-    // --reporter=spec,html,xunit
-    reporters: [
-        'test/spec.out',
-        'test/html.out',
-        'test/xunit.out'
-    ],
-    // --mask=Spec,Dot,Nyan
-    masks: ['Spec', 'Dot', 'Nyan', 'Landing', 'List', 'Progress', 'Min', 'Html'],
-    phantomResources: phantomResources,
-    coverageReporter: 'test/coverage',
-    coverageTarget: [
-        '<%= mocha.coverageReporter %>/cobertura/cobertura-coverage.xml',
-        '<%= mocha.coverageReporter %>/lcov/lcov.info',
-        '<%= mocha.coverageReporter %>/clover/clover.xml',
-        '<%= mocha.coverageReporter %>/json/coverage.json',
-        '<%= mocha.coverageReporter %>/html/index.html'
-    ],
     mochaOptions: {
-        reporter: '<%= mochaReporterMask %>',
+        reporter: 'Spec',
         run: true,
         logErrors: true,
         log: true
     },
+    coverageTarget: [
+        '<%= coverageReporter %>/html/index.html',
+        '<%= coverageReporter %>/cobertura/cobertura-coverage.xml',
+        '<%= coverageReporter %>/lcov/lcov.info',
+        '<%= coverageReporter %>/clover/clover.xml',
+        '<%= coverageReporter %>/json/coverage.json'
+    ],
     mochaOptionsWithCoverage: {
         run: true,
         coverage: {
-            htmlReport: '<%= mocha.coverageReporter %>/html',
-            coberturaReport: '<%= mocha.coverageReporter %>/cobertura',
-            lcovReport: '<%= mocha.coverageReporter %>/lcov',
-            cloverReport: '<%= mocha.coverageReporter %>/clover',
-            jsonReport: '<%= mocha.coverageReporter %>/json'
+            htmlReport: '<%= coverageReporter %>/html',
+            coberturaReport: '<%= coverageReporter %>/cobertura',
+            lcovReport: '<%= coverageReporter %>/lcov',
+            cloverReport: '<%= coverageReporter %>/clover',
+            jsonReport: '<%= coverageReporter %>/json'
         }
     },
     dev: {
-        src: _.values(phantomResources),
-        dest: '<%= mochaReporterOutput %>',
+        src: '<%= projectPaths.unitTest %>',
+        dest: '<%= testReporter %>/spec.out',
         options: '<%= mocha.mochaOptions %>'
     },
     coverage: {
-        src: _.values(phantomResources),
+        src: '<%= projectPaths.unitTest %>',
         options: '<%= mocha.mochaOptionsWithCoverage %>'
     }
 };

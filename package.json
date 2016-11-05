@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/fernandoPalaciosGit/flickr-photos-fetcher#readme",
   "devDependencies": {
+    "grunt": "^0.4.5",
     "babel-preset-es2015": "^6.18.0",
     "babelify": "^7.3.0",
     "browserify": "^13.1.1",
@@ -36,7 +37,12 @@
     "load-grunt-configs": "^1.0.0",
     "load-grunt-tasks": "^3.5.2",
     "minifyify": "^7.3.4",
-    "time-grunt": "^1.4.0"
+    "time-grunt": "^1.4.0",
+    "grunt-mocha-phantom-istanbul": "git+https://github.com/fernandoPalaciosGit/grunt-mocha-phantom-istanbul.git",
+    "chai": "^3.5.0",
+    "browserify-istanbul": "^2.0.0",
+    "chai-jquery": "^2.0.0",
+    "istanbul": "^0.4.4"
   },
   "dependencies": {
     "backbone": "^1.3.3"

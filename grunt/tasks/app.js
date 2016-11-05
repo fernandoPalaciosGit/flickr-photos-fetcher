@@ -1,9 +1,5 @@
 'use strict';
 
-/**
- * Compile JS bundles with concurrent tasks.
- * --compile=app,test,vendor
- */
 module.exports = function (grunt) {
     var utilsTask = require('../../node_modules/design-patterns/grunt/UtilsTask'),
         gruntTask = require('../../node_modules/design-patterns/grunt/GruntTask'),

@@ -8,18 +8,16 @@ var _ = require('lodash'),
     },
     options = {
         packageJson: require('./../../package.json'),
-        bundleJS: [
-            'front-layer/**/*.js',
-            '!front-layer/test/*'
-        ],
         bundleVendors: [
-            'jquery', 'lodash', 'backbone'
+            'jquery', 'lodash', 'backbone', 'chai'
         ],
         linterJs: [
             'front-layer/**/*.js',
             'Gruntfile.js',
             'grunt/**/*.js'
         ],
+        coverageReporter: 'test/coverage',
+        testReporter: 'test/unitTest',
         environmentTasks: ['dev', 'dist'],
         gruntRuntimeConfig: 'grunt/runtime-config',
         projectPaths: {
@@ -28,8 +26,13 @@ var _ = require('lodash'),
             host: process.env.APACHE_HOST || 'localhost',
             port: process.env.APACHE_PORT || '80',
             root: 'flickr-photos-fetcher',
+            unitTest: 'front-layer/test/index.html',
+            bundle: {
+                main: ['front-layer/main/**/*.js'],
+                test: ['front-layer/test/**/*.js']
+            },
             app: {
-                publicDir: 'build/main',
+                main: 'build/main',
                 test: 'build/test',
                 vendors: 'build/vendors',
                 application: 'flickr-photos-fetcher'

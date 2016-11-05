@@ -10,7 +10,7 @@ module.exports = {
             }
         },
         files: {
-            '<%= projectPaths.app.publicDir %>/index.js': '<%= bundleJS %>'
+            '<%= projectPaths.app.main %>/index.js': '<%= projectPaths.bundle.main %>'
         }
     },
     'dev-vendor': {
@@ -26,5 +26,16 @@ module.exports = {
             '<%= projectPaths.app.vendors %>/index.js': ['.']
         }
     },
-    'dev-test': {}
+    'dev-test': {
+        options: {
+            external: '<%= bundleVendors %>',
+            transform: [['babelify', {'presets': ['es2015']}]],
+            browserifyOptions: {
+                debug: true
+            }
+        },
+        files: {
+            '<%= projectPaths.app.test %>/index.js': '<%= projectPaths.bundle.test %>'
+        }
+    }
 };

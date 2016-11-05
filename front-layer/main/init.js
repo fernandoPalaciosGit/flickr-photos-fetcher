@@ -5,11 +5,12 @@ var $ = require('jquery'),
     initializeApp;
 
 initializeApp = function () {
-    let  flicker = getFlickrFetcher({search: 'scotish terriers'});
+    let flicker = getFlickrFetcher({search: 'scotish terriers'});
 
-    flicker.fetchPhotos().then(function (response) {
-        console.dir(response);
-    });
+    flicker.fetchPhotos()
+        .then(function (response) {
+            console.dir(response);
+        });
 };
 
 $(initializeApp);
