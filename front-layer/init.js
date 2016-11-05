@@ -2,12 +2,16 @@
 
 var $ = require('jquery'),
     _ = require('lodash'),
-    flicker = require('./component/FlickrFetcher')({search: 'scotish terriers'}),
+    Backbone = require('backbone'),
+    getFlickrFetcher = require('./component/FlickrFetcher'),
     initializeApp;
 
 initializeApp = function () {
+    var flicker = getFlickrFetcher({search: 'scotish terriers'});
+
     console.log(_.range(5));
     console.log(flicker.search);
+    console.dir(new Backbone.Model());
 };
 
 $(initializeApp);

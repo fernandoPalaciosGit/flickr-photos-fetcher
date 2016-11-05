@@ -13,7 +13,7 @@ var _ = require('lodash'),
             '!front-layer/test/*'
         ],
         bundleVendors: [
-            'jquery', 'lodash'/*, 'backbone'*/
+            'jquery', 'lodash', 'backbone'
         ],
         linterJs: [
             'front-layer/**/*.js',

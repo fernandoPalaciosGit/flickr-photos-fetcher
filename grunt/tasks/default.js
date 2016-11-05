@@ -15,6 +15,7 @@ module.exports = function (grunt) {
         .setTaskEvironment('dev')
         .setTasks([
             'jshint:dev',
+            'clean:dev-main',
             'browserify:dev-app'
         ])
         .register();

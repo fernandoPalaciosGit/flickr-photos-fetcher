@@ -10,8 +10,8 @@ module.exports = {
     'backbone': {
         'exports': 'Backbone',
         'depends': [
-            'jquery',
-            'lodash'
+            'lodash',
+            'jquery'
         ]
     }
 };
