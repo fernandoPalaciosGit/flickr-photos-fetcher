@@ -1,0 +1,23 @@
+{
+  "name": "flicket-photo",
+  "version": "1.0.0",
+  "description": "flicker api to fetch photos",
+  "main": "public/index.html",
+  "scripts": {
+    "test": "grunt test",
+    "app": "grunt app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fernandoPalaciosGit/flickr-photos-fetcher.git"
+  },
+  "keywords": [
+    "flickr"
+  ],
+  "author": "fernando palacios landi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fernandoPalaciosGit/flickr-photos-fetcher/issues"
+  },
+  "homepage": "https://github.com/fernandoPalaciosGit/flickr-photos-fetcher#readme"
+}
