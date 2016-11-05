@@ -8,11 +8,20 @@ var _ = require('lodash'),
     },
     options = {
         packageJson: '<% grunt.file.readJSON(\'package.json\') %>',
-        bundleJS: {
-            dirDev: [
-                '<%= projectPaths.appOsmaniOreilly.application %>/**/*.js'
-            ]
-        },
+        bundleJS: [
+            'front-layer/**/*.js',
+            '!front-layer/test.js'
+        ],
+        bundleVendors: [
+            'backbone', 'jquery', 'lodash'
+        ],
+        linterJs: [
+            'front-layer/**/*.js',
+            'Gruntfile.js',
+            'grunt/**/*.js'
+        ],
+        environmentTasks: ['dev', 'dist'],
+        gruntRuntimeConfig: 'grunt/runtime-config',
         projectPaths: {
             git: '.git/hooks',
             protocol: process.env.APACHE_PROTOCOL || 'http',
@@ -20,12 +29,10 @@ var _ = require('lodash'),
             port: process.env.APACHE_PORT || '80',
             root: 'flickr-photos-fetcher',
             app: {
-                publicDir: 'build/flickr-photos-fetcher/main',
-                test: 'build/flickr-photos-fetcher/test',
+                publicDir: 'build/main',
+                test: 'build/test',
+                vendors: 'build/vendors',
                 application: 'flickr-photos-fetcher'
-            },
-            vendors: {
-                publicDir: 'build/vendors'
             }
         }
     };

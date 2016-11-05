@@ -11,3 +11,7 @@ $npm run app
 ```bash
 $npm run test
 ```
+
+http://codepen.io/jrsinclair/pen/EKQmwo
+http://jrsinclair.com/articles/2016/gentle-introduction-to-javascript-tdd-intro/
+http://jrsinclair.com/articles/2016/tdd-should-be-fun/

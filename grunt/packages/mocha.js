@@ -1,9 +1,7 @@
 'use strict';
 var _ = require('lodash'),
     phantomResources = {
-        platzi: 'test/platzi.html',
-        osmanioreilly: 'test/osmani-oreilly.html',
-        assessments: 'test/assessments.html'
+        'flickr-photos-fetcher': 'test/flickr-photos-fetcher.html'
     };
 
 module.exports = {
