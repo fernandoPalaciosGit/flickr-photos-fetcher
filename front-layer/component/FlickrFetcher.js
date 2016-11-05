@@ -43,6 +43,6 @@ _.assign(FlickrFetcher.prototype, {
     }
 });
 
-module.export = function (options) {
+module.exports = function (options) {
     return new FlickrFetcher(options || {});
 };

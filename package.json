@@ -29,6 +29,7 @@
     "design-patterns": "git+https://github.com/fernandoPalaciosGit/design-patterns.git",
     "grunt-browserify": "^5.0.0",
     "grunt-contrib-jshint": "^1.0.0",
+    "html5-boilerplate": "git+https://github.com/h5bp/html5-boilerplate.git",
     "jshint-stylish": "^2.2.1",
     "load-grunt-configs": "^1.0.0",
     "load-grunt-tasks": "^3.5.2",

@@ -1,0 +1,1 @@
+console.log('Here initialize mocha unit test into grunt test command');

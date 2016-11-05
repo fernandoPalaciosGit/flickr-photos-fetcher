@@ -10,10 +10,10 @@ var _ = require('lodash'),
         packageJson: '<% grunt.file.readJSON(\'package.json\') %>',
         bundleJS: [
             'front-layer/**/*.js',
-            '!front-layer/test.js'
+            '!front-layer/test/*'
         ],
         bundleVendors: [
-            'backbone', 'jquery', 'lodash'
+            'jquery', 'lodash'/*, 'backbone'*/
         ],
         linterJs: [
             'front-layer/**/*.js',

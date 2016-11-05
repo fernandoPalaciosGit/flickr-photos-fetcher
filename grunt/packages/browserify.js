@@ -10,7 +10,7 @@ module.exports = {
             debug: true
         },
         files: {
-            '<%= projectPaths.app.publicDir %>/app.js': '<%= bundleJS %>'
+            '<%= projectPaths.app.publicDir %>/index.js': '<%= bundleJS %>'
         }
     },
     'dev-vendor': {
@@ -23,7 +23,7 @@ module.exports = {
             debug: false
         },
         files: {
-            '<%= projectPaths.app.vendors %>/vendors.js': ['.']
+            '<%= projectPaths.app.vendors %>/index.js': ['.']
         }
     },
     'dev-test': {}
