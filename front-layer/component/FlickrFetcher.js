@@ -4,19 +4,24 @@ let FlickrFetcher, _ = require('lodash'), $ = require('jquery');
 const API_KEY = '8060d4cdac3ceb86af470aae29af3a56';
 const DOMAIN = '.staticflickr.com/';
 const PHOTO_EXT = '_b.jpg';
+const STATUS = {
+    error: 'fail',
+    success: 'ok'
+};
 
 FlickrFetcher = function (options) {
-    this.search = options.search;
+    this.search = encodeURIComponent(options.search);
 };
 
 _.assign(FlickrFetcher.prototype, {
+    constructor: FlickrFetcher,
     getUrlApi: function () {
         return _.join([
             'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=',
             API_KEY, '&safe_search=1&text=', this.search, '&format=json&nojsoncallback=1'
         ], '');
     },
-    photoObjToURL: function (photoObj) {
+    getImageURL: function (photoObj) {
         return _.join([
             'https://farm',
             photoObj.farm, DOMAIN,
@@ -25,20 +30,26 @@ _.assign(FlickrFetcher.prototype, {
             photoObj.secret, PHOTO_EXT
         ], '');
     },
-    transformPhotoObj: function (photoObj) {
-        return {
-            title: photoObj.title,
-            url: this.photoObjToURL(photoObj)
-        };
+    getDataTemplate: function (photos) {
+        return _.map(photos, (photo) => {
+            return {
+                title: photo.title,
+                url: this.getImageURL(photo)
+            };
+        });
     },
-    fetchFlickrData: function (data) {
-        return _.map(data.photos.photo, this.transformPhotoObj);
+    fetchFlickrData: function (resolve, reject, response) {
+        if (response.stat === STATUS.error) {
+            reject(_.pick(response, ['code', 'message']));
+
+        } else if (response.stat === STATUS.success) {
+            resolve(this.getDataTemplate(response.photos.photo));
+        }
     },
     fetchPhotos: function () {
-        return new window.Promise(function (resolve) {
-            $.getJson(this.getUrlApi())
-                .then(this.fetchFlickrData)
-                .then(_.partial(resolve));
+        return new window.Promise((resolve, reject) => {
+            return $.getJSON(this.getUrlApi(),
+                _.partial(_.bind(this.fetchFlickrData, this), resolve, reject));
         });
     }
 });

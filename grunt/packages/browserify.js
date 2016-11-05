@@ -4,10 +4,10 @@ module.exports = {
     'dev-app': {
         options: {
             external: '<%= bundleVendors %>',
-            transform: [['babelify', {'presets': ['es2015']}]]
-        },
-        browserifyOptions: {
-            debug: true
+            transform: [['babelify', {'presets': ['es2015']}]],
+            browserifyOptions: {
+                debug: true
+            }
         },
         files: {
             '<%= projectPaths.app.publicDir %>/index.js': '<%= bundleJS %>'
@@ -17,10 +17,10 @@ module.exports = {
         options: {
             require: '<%= bundleVendors %>',
             plugin: [['minifyify', {map: false}]],
-            transform: [['browserify-shim']]
-        },
-        browserifyOptions: {
-            debug: false
+            transform: [['browserify-shim']],
+            browserifyOptions: {
+                debug: false
+            }
         },
         files: {
             '<%= projectPaths.app.vendors %>/index.js': ['.']
