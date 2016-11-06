@@ -9,11 +9,21 @@
 </head>
 <body>
 <!--[if lte IE 9]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
 <![endif]-->
 
-<!-- Add your site or application content here -->
-<p>Hello world!</p>
+<form action="" id="form-search-flickr">
+    <div class="input-search">
+        <label for="searchText">search in flickr images</label><br/>
+        <input type="text" id="searchText" placeholder="scotish terrier"/>
+    </div>
+    <div class="submit-search">
+        <input type="submit" value="search">
+    </div>
+</form>
+
+<div class="search-flickr-cards"></div>
 
 <script src="./../build/vendors/index.js"></script>
 <script src="./../build/main/index.js"></script>

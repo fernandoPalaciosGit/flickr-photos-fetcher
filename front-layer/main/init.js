@@ -1,16 +1,30 @@
 'use strict';
 
-var $ = require('jquery'),
+let $ = require('jquery'),
+    _ = require('lodash'),
     getFlickrFetcher = require('./component/FlickrFetcher'),
-    initializeApp;
+    getFlickrPhotos = require('./component/UI.FlickrPhoto'),
+    initializeApp, searchFlickr,
+    $form, $textSearch,
+    flicker = getFlickrFetcher(),
+    iuPhotos = getFlickrPhotos();
+
+searchFlickr = function (evSubmit) {
+    evSubmit.preventDefault();
+
+    if ($textSearch.val().trim().length > 0) {
+        flicker
+            .setSearchName($textSearch.val())
+            .fetchPhotos()
+            .then(_.bindKey(iuPhotos, 'refreshUiCards'));
+    }
+};
 
 initializeApp = function () {
-    let flicker = getFlickrFetcher({search: 'scotish terriers'});
-
-    flicker.fetchPhotos()
-        .then(function (response) {
-            console.dir(response);
-        });
+    $form = $('#form-search-flickr');
+    $textSearch = $form.find('#searchText');
+    iuPhotos.setWrapperElement('.search-flickr-cards');
+    $form.on('submit', searchFlickr);
 };
 
 $(initializeApp);

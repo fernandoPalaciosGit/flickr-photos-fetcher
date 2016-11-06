@@ -10,11 +10,16 @@ const STATUS = {
 };
 
 FlickrFetcher = function (options) {
-    this.search = encodeURIComponent(options.search);
+    this.search = this.setSearchName(options.search);
 };
 
 _.assign(FlickrFetcher.prototype, {
     constructor: FlickrFetcher,
+    setSearchName: function (search) {
+        this.search = encodeURIComponent(search);
+
+        return this;
+    },
     getUrlApi: function () {
         return _.join([
             'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=',
