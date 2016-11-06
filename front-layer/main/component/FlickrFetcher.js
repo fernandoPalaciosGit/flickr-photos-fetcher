@@ -8,6 +8,10 @@ const STATUS = {
     error: 'fail',
     success: 'ok'
 };
+const ERROR_FLICKR = {
+    'code': '400',
+    'message': 'error connection'
+};
 
 FlickrFetcher = function (options) {
     this.search = this.setSearchName(options.search);
@@ -53,8 +57,9 @@ _.assign(FlickrFetcher.prototype, {
     },
     fetchPhotos: function () {
         return new window.Promise((resolve, reject) => {
-            return $.getJSON(this.getUrlApi(),
-                _.partial(_.bind(this.fetchFlickrData, this), resolve, reject));
+            $.getJSON(this.getUrlApi())
+                .done(_.bindKey(this, 'fetchFlickrData', resolve, reject))
+                .fail(_.partial(reject, ERROR_FLICKR));
         });
     }
 });
