@@ -14,7 +14,8 @@ const ERROR_FLICKR = {
 };
 
 FlickrFetcher = function (options) {
-    this.search = this.setSearchName(options.search);
+    this.apiKey = options.apiKey || API_KEY;
+    this.setSearchName(options.search);
 };
 
 _.assign(FlickrFetcher.prototype, {
@@ -27,7 +28,7 @@ _.assign(FlickrFetcher.prototype, {
     getUrlApi: function () {
         return _.join([
             'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=',
-            API_KEY, '&safe_search=1&text=', this.search, '&format=json&nojsoncallback=1'
+            this.apiKey, '&safe_search=1&text=', this.search, '&format=json&nojsoncallback=1'
         ], '');
     },
     getImageURL: function (photoObj) {
@@ -55,12 +56,15 @@ _.assign(FlickrFetcher.prototype, {
             resolve(this.getDataTemplate(response.photos.photo));
         }
     },
-    fetchPhotos: function () {
-        return new window.Promise((resolve, reject) => {
-            $.getJSON(this.getUrlApi())
-                .done(_.bindKey(this, 'fetchFlickrData', resolve, reject))
-                .fail(_.partial(reject, ERROR_FLICKR));
-        });
+    fetchPhotos: function (fetcher) {
+        let defer = $.Deferred(),
+            fetcherApi = _.isFunction(fetcher) ? fetcher : _.bind($.getJSON, $);
+
+        fetcherApi(this.getUrlApi())
+            .done(_.bindKey(this, 'fetchFlickrData', defer.resolve, defer.reject))
+            .fail(_.partial(defer.reject, ERROR_FLICKR));
+
+        return defer.promise();
     }
 });
 
