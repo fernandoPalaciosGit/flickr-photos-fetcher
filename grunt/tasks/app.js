@@ -15,7 +15,7 @@ module.exports = function (grunt) {
             'clean:dev-vendor',
             'browserify:dev-vendor',
             'browserify:dev-app',
-            'shell:openBrowser'
+            'shell:openAppBrowser'
         ])
         .register();
 };

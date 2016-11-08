@@ -2,7 +2,7 @@
 
 module.exports = {
     mochaOptions: {
-        reporter: 'Spec',
+        reporter: 'Nyan',
         run: true,
         logErrors: true,
         log: true
@@ -24,7 +24,7 @@ module.exports = {
             jsonReport: '<%= coverageReporter %>/json'
         }
     },
-    dev: {
+    phantom: {
         src: '<%= projectPaths.unitTest %>',
         dest: '<%= testReporter %>/spec.out',
         options: '<%= mocha.mochaOptions %>'

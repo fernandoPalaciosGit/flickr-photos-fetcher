@@ -11,10 +11,17 @@ module.exports = function () {
                 resource], '');
         },
         commands = {
-            openBrowser: {
+            openAppBrowser: {
                 command: [
                     'googlePath=$(which google-chrome)',
                     '${googlePath} \"' + getProyectPath('<%= packageJson.main %>') + '\"',
+                    'exit'
+                ].join(' && ')
+            },
+            openCoverageBrowser: {
+                command: [
+                    'googlePath=$(which google-chrome)',
+                    '${googlePath} \"' + getProyectPath('<%= coverageReporterHtmlOutput %>') + '\"',
                     'exit'
                 ].join(' && ')
             }

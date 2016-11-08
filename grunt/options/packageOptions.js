@@ -17,6 +17,7 @@ var _ = require('lodash'),
             'grunt/**/*.js'
         ],
         coverageReporter: 'test/coverage',
+        coverageReporterHtmlOutput: 'test/coverage/html/component/index.html',
         testReporter: 'test/unitTest',
         environmentTasks: ['dev', 'dist'],
         gruntRuntimeConfig: 'grunt/runtime-config',

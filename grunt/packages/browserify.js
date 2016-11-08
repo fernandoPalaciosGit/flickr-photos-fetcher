@@ -29,7 +29,7 @@ module.exports = {
     'dev-test': {
         options: {
             external: '<%= bundleVendors %>',
-            transform: [['babelify', {'presets': ['es2015']}]],
+            transform: [['babelify', {'presets': ['es2015']}], ['browserify-istanbul']],
             browserifyOptions: {
                 debug: true
             }
