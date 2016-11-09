@@ -12,12 +12,15 @@ _.assign(FlickrPhoto.prototype, {
         this.wrapper = !_.isNull($el) && !_.isUndefined($el.jquery) ? $el : $($el);
     },
     photoToListItem: function (photo) {
-        return ['<li><figure><img src="', photo.url, '" alt=""/>',
+        return [
+            '<li><figure><img src="', photo.url, '" alt==""/>',
             '<figcaption>', photo.title, '</figcaption></figure></li>'
         ].join('');
     },
     photoListToHTML: function (photos) {
-        return ['<ul>', photos.map(this.photoToListItem).join(''), '</ul>'].join('');
+        return [
+            '<ul>', photos.map(this.photoToListItem).join(''), '</ul>'
+        ].join('');
     },
     refreshUiCards: function (data) {
         this.wrapper.html(this.photoListToHTML(data));
