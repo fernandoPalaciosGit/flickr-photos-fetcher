@@ -28,27 +28,28 @@
     "browserify-istanbul": "^2.0.0",
     "browserify-shim": "^3.8.12",
     "chai": "^3.5.0",
-    "chai-jquery": "^2.0.0",
+    "cheerio": "^0.22.0",
     "colors": "^1.1.2",
+    "design-patterns": "git+https://github.com/fernandoPalaciosGit/design-patterns.git",
     "grunt": "^0.4.5",
     "grunt-browserify": "^5.0.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-jshint": "^1.0.0",
-    "grunt-shell": "^2.1.0",
     "grunt-mocha-phantom-istanbul": "git+https://github.com/fernandoPalaciosGit/grunt-mocha-phantom-istanbul.git",
+    "grunt-shell": "^2.1.0",
+    "html5-boilerplate": "git+https://github.com/h5bp/html5-boilerplate.git",
     "istanbul": "^0.4.4",
     "jshint-stylish": "^2.2.1",
     "load-grunt-configs": "^1.0.0",
     "load-grunt-tasks": "^3.5.2",
     "minifyify": "^7.3.4",
-    "time-grunt": "^1.4.0",
-    "html5-boilerplate": "git+https://github.com/h5bp/html5-boilerplate.git",
-    "design-patterns": "git+https://github.com/fernandoPalaciosGit/design-patterns.git"
+    "time-grunt": "^1.4.0"
   },
   "dependencies": {
     "backbone": "^1.3.3"
   },
   "browser": {
+    "chai": "./node_modules/chai/index.js",
     "jquery": "./bower_components/jquery/dist/jquery.js",
     "lodash": "./bower_components/lodash/lodash.js",
     "backbone": "./node_modules/backbone/backbone.js"

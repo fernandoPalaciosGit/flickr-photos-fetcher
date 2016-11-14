@@ -26,9 +26,22 @@ module.exports = {
             '<%= projectPaths.app.vendors %>/index.js': ['.']
         }
     },
+    'dev-vendor-test': {
+        options: {
+            require: '<%= bundleVendorsTest %>',
+            plugin: [['minifyify', {map: false}]],
+            transform: [['browserify-shim']],
+            browserifyOptions: {
+                debug: false
+            }
+        },
+        files: {
+            '<%= projectPaths.app.vendors %>/test.js': ['.']
+        }
+    },
     'dev-test': {
         options: {
-            external: '<%= bundleVendors %>',
+            external: '<%= bundleVendorsTest %>',
             transform: [['babelify', {'presets': ['es2015']}], ['browserify-istanbul']],
             browserifyOptions: {
                 debug: true

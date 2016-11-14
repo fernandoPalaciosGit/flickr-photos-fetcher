@@ -9,6 +9,9 @@ var _ = require('lodash'),
     options = {
         packageJson: require('./../../package.json'),
         bundleVendors: [
+            'jquery', 'lodash', 'backbone'
+        ],
+        bundleVendorsTest: [
             'jquery', 'lodash', 'backbone', 'chai'
         ],
         linterJs: [
@@ -30,7 +33,7 @@ var _ = require('lodash'),
             unitTest: 'front-layer/test/index.html',
             bundle: {
                 main: ['front-layer/main/**/*.js'],
-                test: ['front-layer/test/**/*.js']
+                test: ['front-layer/test/**/*.js', '!front-layer/test/init.js']
             },
             app: {
                 main: 'build/main',

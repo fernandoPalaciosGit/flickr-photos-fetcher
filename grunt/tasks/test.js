@@ -20,6 +20,7 @@ module.exports = function (grunt) {
             'clean:dev-main',
             'browserify:dev-app',
             'browserify:dev-test',
+            'browserify:dev-vendor-test',
             'mocha:<%= mochaEnvironment %>'
         ])({mochaEnvironment: grunt.option('run')}).split(','))
         .register();
