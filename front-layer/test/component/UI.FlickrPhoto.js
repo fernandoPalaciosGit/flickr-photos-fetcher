@@ -1,7 +1,7 @@
 'use strict';
 
-var expect = require('chai').expect/*,
-    dom = require('cheerio')*/;
+var expect = require('chai').expect,
+    dom = require('cheerio');
 
 describe('UI FlickrPhoto', function () {
     var getUIFlickrPhoto = require('./../../main/component/UI.FlickrPhoto'), UIflickr, flickrTemplateData, flickrTemplateRender;
@@ -30,7 +30,8 @@ describe('UI FlickrPhoto', function () {
     });
 
     it('should Add the HTML to the page.', function (next) {
-        // let $document = dom.load(flickrTemplateRender);
+        let $document = dom.load(flickrTemplateRender);
+        console.dir($document);
         next();
     });
 

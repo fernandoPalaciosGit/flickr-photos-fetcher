@@ -4,7 +4,9 @@ module.exports = {
     'dev-app': {
         options: {
             external: '<%= bundleVendors %>',
-            transform: [['babelify', {'presets': ['es2015']}]],
+            transform: [
+                ['babelify', {'presets': ['es2015']}]
+            ],
             browserifyOptions: {
                 debug: true
             }
@@ -16,8 +18,12 @@ module.exports = {
     'dev-vendor': {
         options: {
             require: '<%= bundleVendors %>',
-            plugin: [['minifyify', {map: false}]],
-            transform: [['browserify-shim']],
+            plugin: [
+                ['minifyify', {map: false}]
+            ],
+            transform: [
+                ['browserify-shim']
+            ],
             browserifyOptions: {
                 debug: false
             }
@@ -29,8 +35,12 @@ module.exports = {
     'dev-vendor-test': {
         options: {
             require: '<%= bundleVendorsTest %>',
-            plugin: [['minifyify', {map: false}]],
-            transform: [['browserify-shim']],
+            plugin: [
+                ['minifyify', {map: false}]
+            ],
+            transform: [
+                ['browserify-shim']
+            ],
             browserifyOptions: {
                 debug: false
             }
@@ -42,7 +52,10 @@ module.exports = {
     'dev-test': {
         options: {
             external: '<%= bundleVendorsTest %>',
-            transform: [['babelify', {'presets': ['es2015']}], ['browserify-istanbul']],
+            transform: [
+                ['babelify', {'presets': ['es2015']}],
+                ['browserify-istanbul']
+            ],
             browserifyOptions: {
                 debug: true
             }

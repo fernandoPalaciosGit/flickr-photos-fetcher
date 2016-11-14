@@ -14,6 +14,7 @@ module.exports = function (grunt) {
             'clean:dev-main',
             'clean:dev-vendor',
             'browserify:dev-vendor',
+            'browserify:dev-vendor-test',
             'browserify:dev-app',
             'shell:openAppBrowser'
         ])

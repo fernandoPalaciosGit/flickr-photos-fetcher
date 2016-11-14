@@ -1,9 +1,6 @@
 'use strict';
 
 module.exports = {
-    'chai': {
-        'exports': 'chai'
-    },
     'jquery': {
         'exports': '$'
     },
