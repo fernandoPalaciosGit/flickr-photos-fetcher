@@ -31,7 +31,12 @@ describe('UI FlickrPhoto', function () {
 
     it('should Add the HTML to the page.', function (next) {
         let $document = dom.load(flickrTemplateRender);
-        console.dir($document);
+
+        expect($document('ul').length).to.equal(1);
+        expect($document('li').length).to.equal(2);
+        expect($document('figure').length).to.equal(2);
+        expect($document('img').length).to.equal(2);
+        expect($document('figcaption').length).to.equal(2);
         next();
     });
 
