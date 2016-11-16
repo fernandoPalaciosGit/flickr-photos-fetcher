@@ -12,8 +12,10 @@ $npm run app
 $npm run test
 ```
 
-http://codepen.io/jrsinclair/pen/EKQmwo
-http://jrsinclair.com/articles/2016/gentle-introduction-to-javascript-tdd-html-dom/
+- [**Istanbul Coverage report**](https://fernandopalaciosgit.github.io/flickr-photos-fetcher/test/coverage/html/index.html)
+
+
 http://jrsinclair.com/articles/2016/tdd-should-be-fun/
+https://www.sitepoint.com/javascript-testing-unit-functional-integration/
 http://jrsinclair.com/articles/2016/gentle-introduction-to-functional-javascript-intro/
 https://www.keithcirkel.co.uk/es6-template-literals
