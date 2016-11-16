@@ -20,7 +20,7 @@ describe('UI FlickrPhoto', function () {
             '<img src="https://farm2.staticflickr.com/1451/24770504484_69dd90d5dd_b.jpg" alt==""/>' +
             '<figcaption>20160229090903</figcaption></figure></li></ul>';
         UIflickr = getUIFlickrPhoto({
-            search: 'test_search'
+            search: '#mocha-test-dom'
         });
     });
 
@@ -32,11 +32,13 @@ describe('UI FlickrPhoto', function () {
     it('should Add the HTML to the page.', function (next) {
         let $document = dom.load(flickrTemplateRender);
 
+        UIflickr.refreshUiCards(flickrTemplateData);
         expect($document('ul').length).to.equal(1);
         expect($document('li').length).to.equal(2);
         expect($document('figure').length).to.equal(2);
         expect($document('img').length).to.equal(2);
         expect($document('figcaption').length).to.equal(2);
+        expect($document.text()).to.be.eql(UIflickr.wrapper.text());
         next();
     });
 
