@@ -15,9 +15,9 @@ describe('UI FlickrPhoto', function () {
             'url': 'https://farm2.staticflickr.com/1451/24770504484_69dd90d5dd_b.jpg'
         }];
         flickrTemplateRender = '<ul><li><figure>' +
-            '<img src="https://farm2.staticflickr.com/1577/24770505034_31a9986429_b.jpg" alt==""/>' +
+            '<img src="https://farm2.staticflickr.com/1577/24770505034_31a9986429_b.jpg"/>' +
             '<figcaption>20160229090898</figcaption></figure></li><li><figure>' +
-            '<img src="https://farm2.staticflickr.com/1451/24770504484_69dd90d5dd_b.jpg" alt==""/>' +
+            '<img src="https://farm2.staticflickr.com/1451/24770504484_69dd90d5dd_b.jpg"/>' +
             '<figcaption>20160229090903</figcaption></figure></li></ul>';
         UIflickr = getUIFlickrPhoto({
             search: '#mocha-test-dom'
